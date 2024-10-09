@@ -1,12 +1,13 @@
-
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { io } from "socket.io-client";
 import Swal from "sweetalert2";
-const socket = io("http://localhost:3000");
+import { SocketContext } from "../contexts/appSocket";
 
 export default function Username() {
   const [username, setUsername] = useState("");
+  const socket = useContext(SocketContext);
+  console.log(socket, "Ini Socket");
+
   const greet = () => {
     socket.emit("Greet");
 
@@ -25,23 +26,22 @@ export default function Username() {
       });
       Toast.fire({
         icon: "success",
-        title: `Connect success in socket ${data.socketId}`
+        title: `Connect success in socket ${data.socketId}`,
       });
     });
-
   };
   const navigate = useNavigate();
 
   const addUsername = (e) => {
     e.preventDefault();
     localStorage.setItem("username", username);
-    setUsername("");
 
     //mengeset leaderboard
-    const player = localStorage.getItem("username");
+    const player = username;
     const score = 100;
     socket.emit("createLeaderBoard", { player, score });
 
+    setUsername("");
     navigate("/home");
   };
 

@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
-import { io } from "socket.io-client";
+import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
-const socket = io("http://localhost:3000");
 import { useNavigate } from "react-router-dom";
+import { SocketContext } from "../contexts/appSocket";
 
 export default function Home() {
   const navigate = useNavigate();
-  let [data, setData] = useState([]);  // data room
+  const socket = useContext(SocketContext);
+  console.log(socket.id, "Ini Socket");
+
+  let [data, setData] = useState([]); // data room
   let [leader, setLeader] = useState([]);
 
   const handleLogout = () => {
@@ -38,8 +40,7 @@ export default function Home() {
 
     socket.on("showLeaderBoard:broadcast", (leaderBoard) => {
       setLeader(leaderBoard);
-    });    
-
+    });
   }, [leader]);
 
   //   console.log(data, "ini useState");
@@ -58,7 +59,6 @@ export default function Home() {
           );
         })
       )}
-    
 
       <button onClick={handleLogout}>Logout</button>
 
@@ -69,13 +69,22 @@ export default function Home() {
         leader.map((user, index) => {
           return (
             <div key={index}>
-              <label><b>Player : </b>{user.player}, </label>
-              <label><b>Score : </b>{user.score}, </label>
-              <label><b>Time : </b>{user.createdAt} </label>
+              <label>
+                <b>Player : </b>
+                {user.player},{" "}
+              </label>
+              <label>
+                <b>Score : </b>
+                {user.score},{" "}
+              </label>
+              <label>
+                <b>Time : </b>
+                {user.createdAt}{" "}
+              </label>
             </div>
           );
         })
-      )}  
+      )}
     </>
   );
 }
