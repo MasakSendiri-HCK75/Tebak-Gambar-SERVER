@@ -11,21 +11,23 @@ export default function Home() {
   let [data, setData] = useState([]); // data room
   let [leader, setLeader] = useState([]);
 
-  const  handleRoom = () => {
+  const handleRoom = () => {
 
     navigate("/room");
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("username");
+    socket.emit("removeUserFromRoom", socket.id);
+
     navigate("/");
   };
 
   useEffect(() => {
+    // *Saat User baru masuk ke room
     socket.emit("username", localStorage.getItem("username"));
     socket.on("Greetings with username", (data) => {
-      //   console.log(data.rooms, "ini socket");
-      setData(data.rooms);
+      console.log(data, "ini socket");
+      setData(data.users);
       const Toast = Swal.mixin({
         toast: true,
         position: "top-end",
@@ -47,12 +49,10 @@ export default function Home() {
       setLeader(leaderBoard);
     });
 
-    return()=>{
-      socket.disconnect();
-    }
-  }, [leader]);
 
-  //   console.log(data, "ini useState");
+    //   console.log(data, "ini useState");
+
+  })
 
   return (
     <>
@@ -62,7 +62,7 @@ export default function Home() {
 
       <button onClick={handleLogout}>Logout</button>
 
-      <h1>Leader Board</h1>
+      {/* <h1>Leader Board</h1>
       {leader.length === 0 ? (
         <h1>Loading...</h1>
       ) : (
@@ -83,7 +83,36 @@ export default function Home() {
               </label>
             </div>
           );
-        })
+        }) */}
+        
+      {/* <h1>LeaderBoard</h1> */}
+
+
+      <h1>Leader Board</h1>
+      {data.length === 0 ? (
+        <h1>Loading...</h1>
+      ) : (
+        <div className="overflow-x-auto">
+          <table className="table">
+            {/* head */}
+            <thead>
+              <tr>
+                <th></th>
+                <th>Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data?.map((user, index) => {
+                return (
+                  <tr key={index}>
+                    <th>{index + 1}</th>
+                    <td>{user.username}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       )}
     </>
   );
