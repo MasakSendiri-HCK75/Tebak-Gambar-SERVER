@@ -1,15 +1,20 @@
 import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { SocketContext } from "../contexts/appSocket";
 
 export default function Home() {
   const navigate = useNavigate();
   const socket = useContext(SocketContext);
-  console.log(socket.id, "Ini Socket");
+  // console.log(socket.id, "Ini Socket");
 
   let [data, setData] = useState([]); // data room
   let [leader, setLeader] = useState([]);
+
+  const  handleRoom = () => {
+
+    navigate("/room");
+  };
 
   const handleLogout = () => {
     localStorage.removeItem("username");
@@ -41,24 +46,19 @@ export default function Home() {
     socket.on("showLeaderBoard:broadcast", (leaderBoard) => {
       setLeader(leaderBoard);
     });
+
+    return()=>{
+      socket.disconnect();
+    }
   }, [leader]);
 
   //   console.log(data, "ini useState");
 
   return (
     <>
-      {/* <h1>LeaderBoard</h1> */}
-      {data.length === 0 ? (
-        <h1>Loading...</h1>
-      ) : (
-        data.map((room, index) => {
-          return (
-            <div key={index}>
-              <button>{room}</button>
-            </div>
-          );
-        })
-      )}
+      <div>
+        <Link className="btn bg-green-100" onClick={handleRoom} >Waiting Room</Link>
+      </div>
 
       <button onClick={handleLogout}>Logout</button>
 

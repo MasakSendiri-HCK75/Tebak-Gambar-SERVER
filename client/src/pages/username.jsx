@@ -6,7 +6,7 @@ import { SocketContext } from "../contexts/appSocket";
 export default function Username() {
   const [username, setUsername] = useState("");
   const socket = useContext(SocketContext);
-  console.log(socket, "Ini Socket");
+  // console.log(socket, "Ini Socket");
 
   const greet = () => {
     socket.emit("Greet");

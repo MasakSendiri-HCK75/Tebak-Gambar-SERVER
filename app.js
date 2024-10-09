@@ -19,7 +19,7 @@ const io = new Server(httpServer, {
     }
 });
 
-const rooms = ["1Vs1", "1VsMany"]
+let users = [];
 
 let  leaderBoard = [];
 
@@ -38,8 +38,7 @@ io.on("connection", (socket) => {
 
     socket.on('username', (username) => {
         socket.emit('Greetings with username', {
-            message: `Hello ${username}, welcome to the game `,
-            rooms
+            message: `Hello ${username}, welcome to the game `
         });
     })
 
@@ -54,6 +53,9 @@ io.on("connection", (socket) => {
         io.emit("showLeaderBoard:broadcast", leaderBoard);
     })
 
+    socket.on("disconnect", () => {
+        console.log('a user disconnected', socket.id);
+    });
 });
 
 httpServer.listen(port, () => console.log(`Listening to port ${port}`));
