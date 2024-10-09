@@ -19,41 +19,42 @@ const io = new Server(httpServer, {
     }
 });
 
-const rooms = ["1Vs1", "1VsMany"]
-
-let  leaderBoard = [];
+let leaderBoard = [];
+let users = [];
 
 io.on("connection", (socket) => {
     // ...
     console.log('a user connected', socket.id);
 
-    io.emit("Greetings", {
-        message: `User with id ${socket.id} join global room`,
-    });
+    socket.on('removeUserFromRoom', (socketId) => {
+        console.log(socketId, "Socket Id yang mau dihapus");
 
-    socket.on('Greet', () => {
-        socket.emit('Hi', { message: `Hi User with id ${socket.id}`,
-        socketId: socket.id });
+        console.log(users, "Sebelum Filter");
+        // console.log(socketId, "Ini Socket ID dalam func Socket LeaveRoom");
+        users = users.filter(user => user.socketId !== socketId);
+        console.log(users, "Setelah Filter");
+        io.emit('UsersRemaining', users);
     });
 
     socket.on('username', (username) => {
-        socket.emit('Greetings with username', {
+        users.push({ username, socketId: socket.id });
+        io.emit('Greetings with username', {
             message: `Hello ${username}, welcome to the game `,
-            rooms
+            users
         });
-    })
+    });
 
-    socket.on("createLeaderBoard", ({player, score}) =>{
+    socket.on("disconnect", () => {
+        console.log("user disconnected", socket.id);
 
-        // kita simpan ke db
-        leaderBoard.push({ player, score, createdAt: new Date() });
+        // socket.emit("userLeft", {
+        //     message: `${userName} has left the room`,
 
-        console.log("Array Leader Board : ", leaderBoard);
-        
-        // tampilkan leader board ke semua user yang konek
-        io.emit("showLeaderBoard:broadcast", leaderBoard);
-    })
+        // });
+        users = users.filter(user => user.id !== socket.id);
+        // console.log(socketId, "Ini di App.js");
+        // remove socketId dari table user
+    });
 
-});
-
+})
 httpServer.listen(port, () => console.log(`Listening to port ${port}`));

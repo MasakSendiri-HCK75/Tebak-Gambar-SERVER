@@ -12,15 +12,17 @@ export default function Home() {
   let [leader, setLeader] = useState([]);
 
   const handleLogout = () => {
-    localStorage.removeItem("username");
+    socket.emit("removeUserFromRoom", socket.id);
+
     navigate("/");
   };
 
   useEffect(() => {
+    // *Saat User baru masuk ke room
     socket.emit("username", localStorage.getItem("username"));
     socket.on("Greetings with username", (data) => {
-      //   console.log(data.rooms, "ini socket");
-      setData(data.rooms);
+      console.log(data, "ini socket");
+      setData(data.users);
       const Toast = Swal.mixin({
         toast: true,
         position: "top-end",
@@ -41,49 +43,49 @@ export default function Home() {
     socket.on("showLeaderBoard:broadcast", (leaderBoard) => {
       setLeader(leaderBoard);
     });
-  }, [leader]);
+
+    socket.on("UsersRemaining", (users) => setData(users));
+
+    // return () => {
+    //   socket.disconnect();
+    // };
+  }, []);
 
   //   console.log(data, "ini useState");
 
   return (
     <>
       {/* <h1>LeaderBoard</h1> */}
+
+      <button onClick={handleLogout} className="btn bg-red-700 text-white">
+        Logout
+      </button>
+
+      <h1>Leader Board</h1>
       {data.length === 0 ? (
         <h1>Loading...</h1>
       ) : (
-        data.map((room, index) => {
-          return (
-            <div key={index}>
-              <button>{room}</button>
-            </div>
-          );
-        })
-      )}
-
-      <button onClick={handleLogout}>Logout</button>
-
-      <h1>Leader Board</h1>
-      {leader.length === 0 ? (
-        <h1>Loading...</h1>
-      ) : (
-        leader.map((user, index) => {
-          return (
-            <div key={index}>
-              <label>
-                <b>Player : </b>
-                {user.player},{" "}
-              </label>
-              <label>
-                <b>Score : </b>
-                {user.score},{" "}
-              </label>
-              <label>
-                <b>Time : </b>
-                {user.createdAt}{" "}
-              </label>
-            </div>
-          );
-        })
+        <div className="overflow-x-auto">
+          <table className="table">
+            {/* head */}
+            <thead>
+              <tr>
+                <th></th>
+                <th>Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data?.map((user, index) => {
+                return (
+                  <tr key={index}>
+                    <th>{index + 1}</th>
+                    <td>{user.username}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       )}
     </>
   );
