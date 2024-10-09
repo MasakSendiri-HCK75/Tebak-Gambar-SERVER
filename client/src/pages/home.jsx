@@ -40,13 +40,13 @@ export default function Home() {
       setLeader(leaderBoard);
     });    
 
-  }, []);
+  }, [leader]);
 
   //   console.log(data, "ini useState");
 
   return (
     <>
-      <h1>LeaderBoard</h1>
+      {/* <h1>LeaderBoard</h1> */}
       {data.length === 0 ? (
         <h1>Loading...</h1>
       ) : (
