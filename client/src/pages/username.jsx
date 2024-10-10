@@ -6,7 +6,7 @@ import { SocketContext } from "../contexts/appSocket";
 export default function Username() {
   const [username, setUsername] = useState("");
   const socket = useContext(SocketContext);
-  console.log(socket, "Ini Socket");
+  // console.log(socket, "Ini Socket");
 
   const greet = () => {
     socket.emit("Greet");
@@ -35,54 +35,9 @@ export default function Username() {
   const addUsername = (e) => {
     e.preventDefault();
     localStorage.setItem("username", username);
-
-    //mengeset leaderboard
-    const player = username;
-    const score = 100;
-    socket.emit("createLeaderBoard", { player, score });
-
     setUsername("");
     navigate("/home");
   };
-
-  //   useEffect(() => {
-  //     socket.on("Greetings", (data) => {
-  //       console.log("Greetings", data);
-  //       const Toast = Swal.mixin({
-  //         toast: true,
-  //         position: "top-end",
-  //         showConfirmButton: false,
-  //         timer: 2000,
-  //         timerProgressBar: true,
-  //         didOpen: (toast) => {
-  //           toast.onmouseenter = Swal.stopTimer;
-  //           toast.onmouseleave = Swal.resumeTimer;
-  //         },
-  //       });
-  //       Toast.fire({
-  //         icon: "success",
-  //         title: data.message,
-  //       });
-  //     });
-
-  //     socket.on("Hi", (message) => {
-  //       const Toast = Swal.mixin({
-  //         toast: true,
-  //         position: "top-end",
-  //         showConfirmButton: false,
-  //         timer: 2000,
-  //         timerProgressBar: true,
-  //         didOpen: (toast) => {
-  //           toast.onmouseenter = Swal.stopTimer;
-  //           toast.onmouseleave = Swal.resumeTimer;
-  //         },
-  //       });
-  //       Toast.fire({
-  //         icon: "success",
-  //         title: message.message,
-  //       });
-  //     });
-  //   }, []);
 
   return (
     <>
