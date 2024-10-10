@@ -96,33 +96,31 @@ export default function Home() {
       <button className="btn bg-red-700" onClick={handleLogout}>
         Logout
       </button>
-
-      {/* <h1>Leader Board</h1>
-      {leader.length === 0 ? (
+      {data.length === 0 ? (
         <h1>Loading...</h1>
       ) : (
-        leader.map((user, index) => {
-          return (
-            <div key={index}>
-              <label>
-                <b>Player : </b>
-                {user.player},{" "}
-              </label>
-              <label>
-                <b>Score : </b>
-                {user.score},{" "}
-              </label>
-              <label>
-                <b>Time : </b>
-                {user.createdAt}{" "}
-              </label>
-            </div>
-          );
-        }) */}
-
-      {/* <h1>LeaderBoard</h1> */}
-
-      <Leader/>
+        <div className="overflow-x-auto">
+          <table className="table">
+            {/* head */}
+            <thead>
+              <tr>
+                <th></th>
+                <th>Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data?.map((user, index) => {
+                return (
+                  <tr key={index}>
+                    <th>{index + 1}</th>
+                    <td>{user.username}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      )}
     </>
   );
 }
