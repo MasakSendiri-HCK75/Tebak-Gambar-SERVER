@@ -41,7 +41,7 @@ io.on("connection", (socket) => {
         users.push({ username, socketId: socket.id });
 
         io.emit('Greetings with username', {
-            message: "Hello ${username}, welcome to the game ",
+            message: `Hello ${username}, welcome to the game `,
             users
 
         });
