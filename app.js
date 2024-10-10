@@ -31,6 +31,7 @@ io.on("connection", (socket) => {
 
         console.log(users, "Sebelum Filter");
         // console.log(socketId, "Ini Socket ID dalam func Socket LeaveRoom");
+
         users = users.filter(user => user.socketId !== socketId);
         console.log(users, "Setelah Filter");
         io.emit('UsersRemaining', users);
@@ -38,24 +39,27 @@ io.on("connection", (socket) => {
 
     socket.on('username', (username) => {
         users.push({ username, socketId: socket.id });
+
         io.emit('Greetings with username', {
             message: `Hello ${username}, welcome to the game `,
             users
         });
     });
 
-    socket.on("disconnect", () => {
-        console.log("user disconnected", socket.id);
-
-        // socket.emit("userLeft", {
-        //     message: `${userName} has left the room`,
-
-        console.log("Array Leader Board : ", leaderBoard);
+    socket.on("leaderBoard:broadcast", ({username, score}) => {
+        console.log(username, score, "=====server data leader");
         
-        // tampilkan leader board ke semua user yang konek
-        io.emit("showLeaderBoard:broadcast", leaderBoard);
-    })
+        
+        
+        leaderBoard.push({username, score});
+        console.log(leaderBoard, "==== II ini leaderboard");
+        
+        io.emit('showLeaderBoard:broadcast', leaderBoard);
+    }); 
 
+    socket.on('GameStart', () => {
+        io.emit('StartTheGame')
+    });
 });
-   
+
 httpServer.listen(port, () => console.log(`Listening to port ${port}`));
