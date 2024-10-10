@@ -12,17 +12,40 @@ export default function Home() {
   let [leader, setLeader] = useState([]);
 
   const handleRoom = () => {
-
-    navigate("/room");
+    socket.emit("GameStart");
+    // navigate("/room");
   };
 
   const handleLogout = () => {
     socket.emit("removeUserFromRoom", socket.id);
+    localStorage.removeItem("username");
+    localStorage.removeItem("score");
 
     navigate("/");
   };
 
   useEffect(() => {
+    socket.on("StartTheGame", () => {
+      let timerInterval;
+      Swal.fire({
+        title: "Game will start in",
+        html: "<b></b> milliseconds.",
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+          const timer = Swal.getPopup().querySelector("b");
+          timerInterval = setInterval(() => {
+            timer.textContent = `${Swal.getTimerLeft()}`;
+          }, 100);
+        },
+        willClose: () => {
+          clearInterval(timerInterval);
+          navigate("/room");
+        },
+      });
+    });
+
     // *Saat User baru masuk ke room
     socket.emit("username", localStorage.getItem("username"));
     socket.on("Greetings with username", (data) => {
@@ -45,22 +68,28 @@ export default function Home() {
       });
     });
 
+    socket.on("UsersRemaining", (users) => {
+      setData(users);
+    });
+
     socket.on("showLeaderBoard:broadcast", (leaderBoard) => {
       setLeader(leaderBoard);
     });
 
-
     //   console.log(data, "ini useState");
-
-  })
+  }, []);
 
   return (
     <>
       <div>
-        <Link className="btn bg-green-100" onClick={handleRoom} >Waiting Room</Link>
+        <Link className="btn bg-sky-800" onClick={handleRoom}>
+          Start the Game
+        </Link>
       </div>
 
-      <button onClick={handleLogout}>Logout</button>
+      <button className="btn bg-red-700" onClick={handleLogout}>
+        Logout
+      </button>
 
       {/* <h1>Leader Board</h1>
       {leader.length === 0 ? (
@@ -84,9 +113,8 @@ export default function Home() {
             </div>
           );
         }) */}
-        
-      {/* <h1>LeaderBoard</h1> */}
 
+      {/* <h1>LeaderBoard</h1> */}
 
       <h1>Leader Board</h1>
       {data.length === 0 ? (
