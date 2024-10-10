@@ -52,7 +52,7 @@ export default function Home() {
 
     //   console.log(data, "ini useState");
 
-  })
+  }, [])
 
   return (
     <>

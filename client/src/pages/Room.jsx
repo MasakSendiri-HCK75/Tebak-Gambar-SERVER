@@ -23,19 +23,21 @@ export default function Room() {
         console.log(answer.toUpperCase(), "ini answer");
         console.log(score, "ini score");
 
+        if (change === 3) {
+            navigate("/")
+        }
+
     }, [change])
 
     const handleAnswer = (e) => {
         e.preventDefault();
-        setChange(change + 1);
-
-        if (change === 10) {
-            navigate("/")
-        }
-
+        
         if (answer.toUpperCase() === dataPerItem.name || answer.toUpperCase() === dataPerItem.commonName) {
             setScore(score + 10);
         }
+
+        setChange(change + 1);
+
         setAnswer("");
     };
 
