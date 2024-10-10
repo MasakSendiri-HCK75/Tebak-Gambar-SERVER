@@ -1,0 +1,36 @@
+{
+  "name": "tebak-gambar-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "pg": "^8.13.0",
+    "sequelize": "^6.37.4",
+    "socket.io": "^4.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7",
+    "sequelize-cli": "^6.6.2"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.8",
+    "utf-8-validate": "^6.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MasakSendiri-HCK75/Tebak-Gambar-SERVER.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MasakSendiri-HCK75/Tebak-Gambar-SERVER/issues"
+  },
+  "homepage": "https://github.com/MasakSendiri-HCK75/Tebak-Gambar-SERVER#readme"
+}
