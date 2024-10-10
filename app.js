@@ -21,7 +21,26 @@ const io = new Server(httpServer, {
 
 const rooms = ["1Vs1", "1VsMany"]
 
-let  leaderBoard = [];
+let leaderBoard = [];
+let count = 10;
+let countdownInterval;
+
+function startCountdown() {
+    if (!countdownInterval) {
+      countdownInterval = setInterval(() => {
+        if (count > 0) {
+          count--;
+          io.emit('count', count);
+        } else {
+          clearInterval(countdownInterval);
+          countdownInterval = null;
+          count = 10;
+          io.emit('count', count);
+          startCountdown(); // Restart the countdown
+        }
+      }, 1000);
+    }
+  }
 
 io.on("connection", (socket) => {
     // ...
@@ -31,9 +50,12 @@ io.on("connection", (socket) => {
         message: `User with id ${socket.id} join global room`,
     });
 
+
     socket.on('Greet', () => {
-        socket.emit('Hi', { message: `Hi User with id ${socket.id}`,
-        socketId: socket.id });
+        socket.emit('Hi', {
+            message: `Hi User with id ${socket.id}`,
+            socketId: socket.id
+        });
     });
 
     socket.on('username', (username) => {
@@ -43,13 +65,36 @@ io.on("connection", (socket) => {
         });
     })
 
-    socket.on("createLeaderBoard", ({player, score}) =>{
+
+    io.emit('count', count);
+    
+    socket.on('startCountdown', () => {
+        if (!countdownInterval) {
+            countdownInterval = setInterval(() => {
+                if (count > 0) {
+                    count--;
+                    io.emit('count', count);
+                } else {
+                    clearInterval(countdownInterval);
+                    countdownInterval = null;
+                }
+            }, 1000);
+        }
+    });
+
+    if (!countdownInterval) {
+        startCountdown();
+      }
+    
+
+
+    socket.on("createLeaderBoard", ({ player, score }) => {
 
         // kita simpan ke db
         leaderBoard.push({ player, score, createdAt: new Date() });
 
         console.log("Array Leader Board : ", leaderBoard);
-        
+
         // tampilkan leader board ke semua user yang konek
         io.emit("showLeaderBoard:broadcast", leaderBoard);
     })
