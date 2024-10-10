@@ -1,0 +1,212 @@
+[
+    {
+      "name": "INDONESIA",
+      "imageUrl": "https://i.pinimg.com/564x/19/25/6f/19256fc3387dc4c7b384e6e8af443d32.jpg",
+      "commonName": "INDONESIA",
+      "hint": "Negara kepulauan terbesar di dunia dengan lebih dari 17.000 pulau."
+    },
+    {
+      "name": "UNITED STATES",
+      "imageUrl": "https://i.pinimg.com/564x/91/64/f2/9164f2aa1c9920647e4fe1f0563191ef.jpg",
+      "commonName": "AMERIKA SERIKAT",
+      "hint": "Negara dengan ekonomi terbesar dan beragam budaya."
+    },
+    {
+      "name": "JAPAN",
+      "imageUrl": "https://i.pinimg.com/564x/9f/2c/59/9f2c5901929736861250abf8b8dd9f6f.jpg",
+      "commonName": "JEPANG",
+      "hint": "Dikenal dengan teknologi tinggi dan tradisi samurai."
+    },
+    {
+      "name": "GERMANY",
+      "imageUrl": "https://i.pinimg.com/564x/0f/d1/67/0fd1672c3e0f53cb681a1bbb2599b26b.jpg",
+      "commonName": "JERMAN",
+      "hint": "Negara terkenal dengan mobilnya dan festival Oktoberfest."
+    },
+    {
+      "name": "BRAZIL",
+      "imageUrl": "https://i.pinimg.com/564x/15/fc/ad/15fcad522bb0817c4837026f1b118b72.jpg",
+      "commonName": "BRASIL",
+      "hint": "Rumah bagi hutan hujan Amazon dan festival Karnaval."
+    },
+    {
+      "name": "FRANCE",
+      "imageUrl": "https://i.pinimg.com/564x/d3/28/0f/d3280f4c8423cb190eebadd0acc6c88e.jpg",
+      "commonName": "PERANCIS",
+      "hint": "Dikenal dengan menara Eiffel dan seni kuliner."
+    },
+    {
+      "name": "AUSTRALIA",
+      "imageUrl": "https://i.pinimg.com/564x/e1/be/7a/e1be7af2b64791302f6612be92820ac2.jpg",
+      "commonName": "AUSTRALIA",
+      "hint": "Negara dengan banyak spesies unik dan terumbu karang Great Barrier Reef."
+    },
+    {
+      "name": "CANADA",
+      "imageUrl": "https://i.pinimg.com/564x/1a/7e/2d/1a7e2dc96e5038d09e44ad4710d11fca.jpg",
+      "commonName": "KANADA",
+      "hint": "Dikenal dengan keindahan alamnya dan maple syrup."
+    },
+    {
+      "name": "INDIA",
+      "imageUrl": "https://i.pinimg.com/564x/b3/74/0c/b3740c2ab8059b6892545a61d4f8ca4b.jpg",
+      "commonName": "INDIA",
+      "hint": "Negara dengan budaya yang kaya dan sejarah panjang."
+    },
+    {
+      "name": "UNITED KINGDOM",
+      "imageUrl": "https://i.pinimg.com/736x/bb/8b/e7/bb8be71594f12c39d148941632f0dcc7.jpg",
+      "commonName": "BRITANIA RAYA",
+      "hint": "Rumah bagi Ratu dan sejarah panjang kerajaan."
+    },
+    {
+      "name": "ARGENTINA",
+      "imageUrl": "https://i.pinimg.com/564x/9e/e1/e4/9ee1e412e80b591b0492101c6ff88613.jpg",
+      "commonName": "ARGENTINA",
+      "hint": "Dikenal dengan tango dan pegunungan Andes."
+    },
+    {
+      "name": "RUSSIA",
+      "imageUrl": "https://i.pinimg.com/564x/12/db/c9/12dbc9fdf413eade5d81ca3a4499f088.jpg",
+      "commonName": "RUSIA",
+      "hint": "Negara terbesar di dunia yang membentang di dua benua."
+    },
+    {
+      "name": "CHINA",
+      "imageUrl": "https://i.pinimg.com/564x/0f/1e/11/0f1e11cf77dffab75f9d6e4a3a961dc0.jpg",
+      "commonName": "TIONGKOK",
+      "hint": "Dikenal dengan Tembok Besar dan budaya kuno."
+    },
+    {
+      "name": "SPAIN",
+      "imageUrl": "https://i.pinimg.com/564x/b0/2b/d7/b02bd73e0f22c1bca02228f3cafbe6f0.jpg",
+      "commonName": "SPANYOL",
+      "hint": "Rumah bagi flamenco dan kejuaraan sepak bola."
+    },
+    {
+      "name": "ITALY",
+      "imageUrl": "https://i.pinimg.com/564x/0d/48/f9/0d48f91fdcb4e92f219a3c72f87a24eb.jpg",
+      "commonName": "ITALIA",
+      "hint": "Dikenal dengan pizza, pasta, dan sejarah Romawi."
+    },
+    {
+      "name": "MEXICO",
+      "imageUrl": "https://i.pinimg.com/736x/53/ce/ac/53ceac4137f9cdbd7b0d384e6ca62763.jpg",
+      "commonName": "MEKSIKO",
+      "hint": "Dikenal dengan masakan yang kaya dan tradisi budaya."
+    },
+    {
+      "name": "SOUTH KOREA",
+      "imageUrl": "https://i.pinimg.com/564x/43/44/a8/4344a8aa5ee96142355a3ef3c97cba82.jpg",
+      "commonName": "KOREA SELATAN",
+      "hint": "Terkenal dengan K-Pop dan teknologi canggih."
+    },
+    {
+      "name": "TURKEY",
+      "imageUrl": "https://i.pinimg.com/564x/c8/39/88/c83988ed37788d55989f814fd13465d0.jpg",
+      "commonName": "TURKI",
+      "hint": "Jembatan antara Eropa dan Asia dengan sejarah kaya."
+    },
+    {
+      "name": "SAUDI ARABIA",
+      "imageUrl": "https://i.pinimg.com/564x/fa/4a/ff/fa4affdb315dccf314d7035df5c214fb.jpg",
+      "commonName": "ARAB SAUDI",
+      "hint": "Negara asal Islam dengan Mekah sebagai pusatnya."
+    },
+    {
+      "name": "SOUTH AFRICA",
+      "imageUrl": "https://i.pinimg.com/564x/c5/11/84/c511849575695e25d58881cf27308b0f.jpg",
+      "commonName": "AFRIKA SELATAN",
+      "hint": "Negara dengan keberagaman budaya dan sejarah apartheid."
+    },
+    {
+      "name": "NETHERLANDS",
+      "imageUrl": "https://i.pinimg.com/564x/f3/9f/de/f39fde48fc0ec9ffcfb5b176f5bc4775.jpg",
+      "commonName": "BELANDA",
+      "hint": "Dikenal dengan kincir angin dan bunga tulip."
+    },
+    {
+      "name": "SWEDEN",
+      "imageUrl": "https://i.pinimg.com/564x/11/53/e3/1153e3d2302b607fbaa5b3c81bd0be51.jpg",
+      "commonName": "SWEDIA",
+      "hint": "Negara yang dikenal dengan sistem kesejahteraan sosialnya."
+    },
+    {
+      "name": "SWITZERLAND",
+      "imageUrl": "https://i.pinimg.com/564x/87/a5/f1/87a5f16e9ce421511d46c5d90b7c62be.jpg",
+      "commonName": "SWISS",
+      "hint": "Dikenal dengan cokelat, jam, dan pemandangan pegunungan."
+    },
+    {
+      "name": "NORWAY",
+      "imageUrl": "https://i.pinimg.com/564x/29/40/cc/2940cc1fbbe6853bbb4f321f9d3dab4d.jpg",
+      "commonName": "NORWEGIA",
+      "hint": "Dikenal dengan fjord dan keindahan alamnya."
+    },
+    {
+      "name": "DENMARK",
+      "imageUrl": "https://i.pinimg.com/564x/82/85/ac/8285ace7d429c1877c941d10c16dd1fd.jpg",
+      "commonName": "DENMARK",
+      "hint": "Rumah bagi Hans Christian Andersen dan banyak kastil."
+    },
+    {
+      "name": "FINLAND",
+      "imageUrl": "https://i.pinimg.com/564x/c8/cd/f7/c8cdf77218bffb620cb0ce22ff0aea0b.jpg",
+      "commonName": "FINLANDIA",
+      "hint": "Dikenal dengan sistem pendidikan terbaik dan sauna."
+    },
+    {
+      "name": "POLAND",
+      "imageUrl": "https://i.pinimg.com/564x/15/91/af/1591afb2a6daacd1a6eb85a7389e1fe0.jpg",
+      "commonName": "POLANDIA",
+      "hint": "Negara dengan sejarah kaya dan kota-kota bersejarah."
+    },
+    {
+      "name": "NEW ZEALAND",
+      "imageUrl": "https://i.pinimg.com/564x/17/8c/ac/178cacde635327bcd6f266c5f14f725d.jpg",
+      "commonName": "SELANDIA BARU",
+      "hint": "Dikenal dengan pemandangan alam yang menakjubkan dan Kiwi."
+    },
+    {
+      "name": "BELGIUM",
+      "imageUrl": "https://i.pinimg.com/564x/1b/23/3f/1b233f2f6f4d3dfbf5d2ce6ea882ff99.jpg",
+      "commonName": "BELGIA",
+      "hint": "Dikenal dengan cokelat dan birnya."
+    },
+    {
+      "name": "AUSTRIA",
+      "imageUrl": "https://i.pinimg.com/564x/e8/c2/5e/e8c25ebb74e8f9570b5b1a5e99dd1b7b.jpg",
+      "commonName": "AUSTRIA",
+      "hint": "Negara dengan banyak komposer terkenal dan pegunungan Alpen."
+    },
+    {
+      "name": "PORTUGAL",
+      "imageUrl": "https://i.pinimg.com/564x/d9/20/f3/d920f3db190ffb914eef0fe0aa8b40d7.jpg",
+      "commonName": "PORTUGAL",
+      "hint": "Dikenal dengan eksplorasi laut dan fado."
+    },
+    {
+      "name": "HUNGARY",
+      "imageUrl": "https://i.pinimg.com/564x/af/01/d0/af01d00808c233c3bbf271fdc302eba0.jpg",
+      "commonName": "HUNGARIA",
+      "hint": "Negara dengan arsitektur bersejarah dan masakan yang lezat."
+    },
+    {
+      "name": "GREECE",
+      "imageUrl": "https://i.pinimg.com/564x/3a/7c/29/3a7c29e909936b7ac658fe905acd1845.jpg",
+      "commonName": "YUNANI",
+      "hint": "Dikenal dengan mitologi dan pantai-pantai yang indah."
+    },
+    {
+      "name": "PHILIPPINES",
+      "imageUrl": "https://i.pinimg.com/564x/02/63/11/0263111a6cef54c2bc7a3aaff371cd46.jpg",
+      "commonName": "FILIPINA",
+      "hint": "Negara kepulauan dengan pantai-pantai menakjubkan."
+    },
+    {
+      "name": "THAILAND",
+      "imageUrl": "https://i.pinimg.com/564x/57/d5/6e/57d56ee2847ea21006e744f203761678.jpg",
+      "commonName": "THAILAND",
+      "hint": "Dikenal dengan makanan jalanan dan budaya yang kaya."
+    }
+]
